@@ -1,0 +1,550 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f9;
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: #333;
+    color: white;
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar nav ul li {
+    display: inline;
+}
+
+.navbar nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+}
+
+.navbar nav ul li a:hover {
+    color: #ff6347;
+}
+
+/* Hero Section */
+.hero {
+    background-image: url('12.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    animation: fadeIn 2s ease-out;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    animation: fadeIn 3s ease-out;
+}
+
+.hero button {
+    background-color: #ff6347;
+    padding: 12px 30px;
+    color: white;
+    border: none;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.hero button:hover {
+    background-color: #ff4500;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    font-size: 2rem;
+    animation: bounce 1s infinite;
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; transform: translateY(50px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+/* Available Pets Section */
+.filter-menu {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.filter-menu button {
+    background-color: #eee;
+    color: #333;
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    margin: 0 10px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.filter-menu button:hover {
+    background-color: #ff6347;
+    color: white;
+}
+
+.pet-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+    justify-items: center;
+    padding: 20px;
+}
+
+/* Pet Card Styling */
+.pet-card {
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    max-width: 320px;
+    height: 420px;
+}
+
+.pet-card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}
+
+/* Image Styling */
+.pet-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: opacity 0.3s ease;
+}
+
+.pet-card:hover img {
+    opacity: 0.8;
+}
+
+
+
+/* Pet Info Section */
+.pet-info {
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin-top: -20px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.pet-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #333;
+    font-weight: bold;
+}
+
+.pet-info p {
+    color: #777;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+/* Action Buttons */
+.pet-info .btn-adopt {
+    background-color: #ff6347;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.pet-info .btn-adopt:hover {
+    background-color: #ff4500;
+}
+
+/* Pet Tag Styling */
+.pet-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(255, 99, 71, 0.8);
+    color: white;
+    padding: 8px 12px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Hover effect for tags */
+.pet-card:hover .pet-tag {
+    background-color: rgba(255, 99, 71, 1);
+}
+
+/* Hide pets that are not selected by filter */
+.hidden {
+    display: none;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #333; /* Dark background for the footer */
+    color: #fff; /* Light text color for contrast */
+    padding: 40px 20px;
+    text-align: center; /* Centers text inside the footer */
+    display: flex;
+    flex-direction: column; /* Stack the content vertically */
+    justify-content: center; /* Center vertically */
+    align-items: center; /* Center horizontally */
+    min-height: 200px; /* Ensure footer has a minimum height */
+    font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+    max-width: 1000px; /* Limits the width of the footer content */
+    width: 100%; /* Ensures the container takes up full width */
+    padding: 0 20px; /* Adds padding to prevent text from touching the edges */
+}
+
+footer p {
+    font-size: 1rem;
+    margin: 10px 0;
+    color: #ddd; /* Lighter text color for the footer */
+}
+
+footer .social-links {
+    margin-top: 20px;
+}
+
+footer .social-links a {
+    color: #fff; /* White text color for the links */
+    font-size: 1.2rem;
+    margin: 0 15px;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+footer .social-links a:hover {
+    color: #4CAF50; /* Green color for hover effect */
+    transform: scale(1.1); /* Slightly enlarge the link when hovered */
+}
+
+footer .social-links a:focus {
+    outline: none; /* Remove the outline when focusing on links */
+    text-decoration: underline; /* Underline when focused */
+}
+
+/* Copyright Section */
+footer .footer-container p:last-of-type {
+    font-size: 0.9rem;
+    color: #bbb; /* Lighter color for copyright text */
+    margin-top: 20px;
+}
+
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .navbar nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .pet-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+
+    .hero-content h2 {
+        font-size: 2.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .hero button {
+        font-size: 1rem;
+        padding: 10px 25px;
+    }
+
+    .testimonials h2 {
+        font-size: 2rem;
+    }
+
+    .testimonial-cards {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .testimonial-card {
+        width: 100%;
+    }
+
+    /* Modal */
+    .modal-content {
+        width: 90%; /* Adjust modal width for smaller screens */
+        max-width: 100%;
+    }
+    .navbar {
+        position: relative; /* Keep the header's relative position */
+        z-index: 10; /* Default value to ensure the modal shows above */
+    }
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+#auth-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    display: none; /* Hidden by default */
+    z-index: 1000; /* Ensure it appears on top of other content */
+}
+
+.modal-content {
+    position: relative;
+    background-color: #fff;
+    margin: 50px auto;
+    padding: 20px;
+    max-width: 500px;
+    border-radius: 8px;
+}
+
+.close-btn {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    float: right;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.auth-tabs {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    background-color: #eee;
+    color: #333;
+    padding: 10px;
+    width: 48%;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    font-size: 1.1rem;
+    border-radius: 5px;
+}
+
+.tab-btn.active {
+    background-color: #ff6347;
+    color: white;
+}
+
+.auth-form {
+    display: none;
+}
+
+.auth-form form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.auth-form form button {
+    background-color: #ff6347;
+    color: white;
+    padding: 10px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.auth-form form button:hover {
+    background-color: #e5533b;
+}
+
+.feedback {
+    font-size: 1.1rem;
+    color: green;
+}
+
+/* Contact Section Styling */
+#contact {
+    background-color: #f9f9f9; /* Soft background color */
+    padding: 50px 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+#contact h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+#contact p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+#contact a {
+    color: #4CAF50; /* Green link color */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+#contact a:hover {
+    color: #45a049; /* Darker green on hover */
+    text-decoration: underline;
+}
+
+/* Contact Container */
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.contact-info i {
+    font-size: 3rem;
+    color: #4CAF50;
+    margin-bottom: 15px;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    color: #555;
+    margin: 10px 0;
+}
+
+.contact-info p a {
+    color: #4CAF50;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.contact-info p a:hover {
+    color: #45a049;
+    text-decoration: underline;
+}
+
+/* Social Links Styling */
+.social-links {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    font-size: 1.5rem;
+    color: #333;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #4CAF50;
+}

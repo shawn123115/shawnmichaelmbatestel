@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pet Adoption</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Top Navigation Bar -->
+    <header class="navbar">
+        <div class="container">
+            <h1 class="logo">Pet Adoption</h1>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#pets">Available Pets</a></li>
+                    
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="content">
+        
+        <!-- Hero Section (Home) -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h2>Find Your Perfect Pet</h2>
+                <p>Start a new chapter of love and companionship by adopting a pet today.</p>
+                <button onclick="openLoginModal()">View Available Pets</button>
+            </div>
+            <div class="scroll-indicator">
+                <span>&#8595;</span> <!-- Down Arrow -->
+            </div>
+        </section>
+
+        <!-- Modal for Login/Register -->
+        <div id="auth-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+                <div class="auth-tabs">
+                    <button class="tab-btn active" onclick="showLoginForm()">Login</button>
+                    <button class="tab-btn" onclick="showRegisterForm()">Register</button>
+                </div>
+
+                <!-- Login Form -->
+                <div id="login-form" class="auth-form">
+                    <h3>Login</h3>
+                    <form id="login" onsubmit="return validateLogin()">
+                        <label for="login-email">Email:</label>
+                        <input type="email" id="login-email" required><br>
+
+                        <label for="login-password">Password:</label>
+                        <input type="password" id="login-password" required><br>
+
+                        <button type="submit">Login</button>
+                    </form>
+                    <p id="login-feedback"></p>
+                </div>
+
+                <!-- Register Form -->
+                <div id="register-form" class="auth-form" style="display: none;">
+                    <h3>Register</h3>
+                    <form id="register" onsubmit="return validateRegister()">
+                        <label for="register-email">Email:</label>
+                        <input type="email" id="register-email" required><br>
+
+                        <label for="register-password">Password:</label>
+                        <input type="password" id="register-password" required><br>
+
+                        <label for="register-name">Name:</label>
+                        <input type="text" id="register-name" required><br>
+
+                        <button type="submit">Register</button>
+                    </form>
+                    <p id="register-feedback"></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Available Pets Section -->
+        <section id="pets">
+            <h2>Available Pets for Adoption</h2>
+            
+            <!-- Filter Menu -->
+            <div class="filter-menu">
+                <button data-type="all" onclick="filterPets('all')">All Pets</button>
+                <button data-type="cat" onclick="filterPets('cat')">Cats</button>
+                <button data-type="dog" onclick="filterPets('dog')">Dogs</button>
+            </div>
+
+            <!-- Pet Grid -->
+            <div class="pet-grid">
+                <!-- Cat 1 -->
+                <div class="pet-card cat">
+                    <img src="1.jpg" alt="Fluffy">
+                    <h3>Fluffy</h3>
+                    <p>Age: 2 years | Breed: Persian</p>
+                    <button>Adopt</button>
+                </div>
+
+                <!-- Dog 1 -->
+                <div class="pet-card dog">
+                    <img src="d1.avif" alt="Rex">
+                    <h3>Rex</h3>
+                    <p>Age: 1 year | Breed: Golden Retriever</p>
+                    <button>Adopt</button>
+                </div>
+
+                <!-- Cat 2 -->
+                <div class="pet-card cat">
+                    <img src="2.jpg" alt="Bella">
+                    <h3>Bella</h3>
+                    <p>Age: 3 years | Breed: Maine Coon</p>
+                    <button>Adopt</button>
+                </div>
+
+                <!-- Dog 2 -->
+                <div class="pet-card dog">
+                    <img src="d2.jpg" alt="Max">
+                    <h3>Max</h3>
+                    <p>Age: 4 years | Breed: Bulldog</p>
+                    <button>Adopt</button>
+                </div>
+
+                <!-- Cat 3 -->
+                <div class="pet-card cat">
+                    <img src="3.jpg" alt="Milo">
+                    <h3>Milo</h3>
+                    <p>Age: 1 year | Breed: Siamese</p>
+                    <button>Adopt</button>
+                </div>
+
+                <!-- Dog 3 -->
+                <div class="pet-card dog">
+                    <img src="d3.avif" alt="Bella">
+                    <h3>Bella</h3>
+                    <p>Age: 2 years | Breed: Beagle</p>
+                    <button>Adopt</button>
+                </div>
+
+                <!-- Cat 4 -->
+                <div class="pet-card cat">
+                    <img src="4.avif" alt="Whiskers">
+                    <h3>Whiskers</h3>
+                    <p>Age: 4 years | Breed: Ragdoll</p>
+                    <button>Adopt</button>
+                </div>
+
+                <!-- Dog 4 -->
+                <div class="pet-card dog">
+                    <img src="d4.jpg" alt="Rocky">
+                    <h3>Rocky</h3>
+                    <p>Age: 3 years | Breed: German Shepherd</p>
+                    <button>Adopt</button>
+                </div>
+
+                <!-- Cat 5 -->
+                <div class="pet-card cat">
+                    <img src="5.jpg" alt="Luna">
+                    <h3>Luna</h3>
+                    <p>Age: 2 years | Breed: British Shorthair</p>
+                    <button>Adopt</button>
+                </div>
+
+                <!-- Dog 5 -->
+                <div class="pet-card dog">
+                    <img src="d5.avif" alt="Charlie">
+                    <h3>Charlie</h3>
+                    <p>Age: 1 year | Breed: Dachshund</p>
+                    <button>Adopt</button>
+                </div>
+
+                <!-- Cat 6 -->
+                <div class="pet-card cat">
+                    <img src="6.jpg" alt="Oliver">
+                    <h3>Oliver</h3>
+                    <p>Age: 5 years | Breed: Bengal</p>
+                    <button>Adopt</button>
+                </div>
+
+                <!-- Dog 6 -->
+                <div class="pet-card dog">
+                    <img src="d6.jpg" alt="Sadie">
+                    <h3>Sadie</h3>
+                    <p>Age: 3 years | Breed: Poodle</p>
+                    <button>Adopt</button>
+                </div>
+
+                <!-- Cat 7 -->
+                <div class="pet-card cat">
+                    <img src="7.webp" alt="Cleo">
+                    <h3>Cleo</h3>
+                    <p>Age: 2 years | Breed: Sphynx</p>
+                    <button>Adopt</button>
+                </div>
+
+                <!-- Dog 7 -->
+                <div class="pet-card dog">
+                    <img src="d7.jpeg" alt="Duke">
+                    <h3>Duke</h3>
+                    <p>Age: 5 years | Breed: Boxer</p>
+                    <button>Adopt</button>
+                </div>
+
+                <!-- Cat 8 -->
+                <div class="pet-card cat">
+                    <img src="8.jpg" alt="Socks">
+                    <h3>Socks</h3>
+                    <p>Age: 3 years | Breed: Tabby</p>
+                    <button>Adopt</button>
+                </div>
+
+                <!-- Dog 8 -->
+                <div class="pet-card dog">
+                    <img src="d8.jpg" alt="Buddy">
+                    <h3>Buddy</h3>
+                    <p>Age: 2 years | Breed: Labrador</p>
+                    <button>Adopt</button>
+                </div>
+
+                <!-- Cat 9 -->
+                <div class="pet-card cat">
+                    <img src="9.webp" alt="Misty">
+                    <h3>Misty</h3>
+                    <p>Age: 1 year | Breed: Exotic Shorthair</p>
+                    <button>Adopt</button>
+                </div>
+
+                <!-- Dog 9 -->
+                <div class="pet-card dog">
+                    <img src="d9.jpg" alt="Milo">
+                    <h3>Milo</h3>
+                    <p>Age: 4 years | Breed: Pomeranian</p>
+                    <button>Adopt</button>
+                </div>
+
+                <!-- Cat 10 -->
+                <div class="pet-card cat">
+                    <img src="10.jpg" alt="Tommy">
+                    <h3>Tommy</h3>
+                    <p>Age: 3 years | Breed: British Blue</p>
+                    <button>Adopt</button>
+                </div>
+
+                <!-- Dog 10 -->
+                <div class="pet-card dog">
+                    <img src="d10.jpg" alt="Scout">
+                    <h3>Scout</h3>
+                    <p>Age: 2 years | Breed: Australian Shepherd</p>
+                    <button>Adopt</button>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p>If you have any questions, feel free to reach out!</p>
+            <p>Email us at <a href="bshawn123115@gmail.com">info@petadoption.com</a></p>
+        </section>
+
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <p>Follow us on social media</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com/shawn.m.batestel.2024">Facebook</a>
+                <a href="https://twitter.com">Twitter</a>
+                <a href="https://instagram.com">Instagram</a>
+            </div>
+            <p>&copy; 2024 Pet Adoption. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
